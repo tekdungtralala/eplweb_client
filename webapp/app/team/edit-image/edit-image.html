@@ -1,0 +1,122 @@
+
+<h3 class="box-title">Slide Show</h3>
+<div class="epl-upload-image-button">
+	<div>
+		<span class="btn btn-success epl-select-file-btn {{vm.slideShowMode!='editable'?'disabled':''}}">
+			<i class="glyphicon glyphicon-plus"></i>
+			<span>Select files...</span>	
+			<input type="file" ng-file-select name="fileName" 
+				ng-model="vm.imageFile" 
+				ng-file-change="vm.generateThumb()"/>
+		</span>
+	</div>	
+	<div>
+		<button type="submit" 
+			class="btn btn-primary {{(vm.dataUrl==null||vm.slideShowMode!='editable')?'disabled':''}}"
+			ng-click="vm.uploadImage()">
+			<i class="glyphicon glyphicon-upload"></i>
+			<span>Start upload</span>
+		</button>
+	</div>
+	<div>
+		<a type="submit" 
+			role="button"
+			class="btn btn-primary"
+			ng-click="vm.toggleImageMode()">
+			<i class="glyphicon {{vm.slideShowMode=='editable'?'glyphicon-sort':'glyphicon-pencil'}} "></i>
+			<span>{{vm.slideShowMode == "editable"?"Rearrange Mode":"Edit Mode"}}</span>
+		</a>
+	</div>
+</div>
+
+<div class='clearfix'></div>
+
+<!-- Edit Mode -->
+<div ng-show="vm.slideShowMode=='editable'">
+	<div class="progress epl-progress" ng-hide="vm.hideProgress">
+		<div class="progress-bar progress-bar-success"></div>
+	</div>
+
+	<div>
+		<img ng-show="vm.dataUrl != null" class="epl-sample-image" 
+			ng-src="{{vm.dataUrl}}"/>
+	</div>
+
+	<div class="epl-list-image">
+		<div data-ng-repeat="(k,v) in vm.imagesTeam" class="epl-thumbnail">
+			<img ng-src="{{v.src}}" class="epl-item-image thumbnail" />
+			<a class="btn btn-default btn-flat btn-xs epl-item-del-btn" role="button" 
+				ng-click="vm.preDeleteImage(v.id)">
+				<span class="glyphicon glyphicon-remove" />
+			</a>
+		</div>
+		<div ng-show="vm.imagesTeam == null" >
+			Empty images.
+		</div>
+	</div>
+</div>
+
+<div class='clearfix'></div>
+
+<!-- Sorting Mode -->
+<div ng-show="vm.slideShowMode=='sorting'" class="epl-image-sorting">
+	<ul class="list-group">
+		<li class="list-group-item" data-ng-repeat="(k,v) in vm.imagesTeam">
+			<img ng-src="{{v.src}}" class="epl-item"/>
+			<div>
+				<button type="submit" 
+					class="btn btn-default btn-sm"
+					ng-click="vm.changePosition(k-1,v)">
+					<i class="glyphicon glyphicon-arrow-up"></i>
+				</button>
+				<button type="submit" 
+					class="btn btn-default btn-sm"
+					ng-click="vm.changePosition(k+1,v)">
+					<i class="glyphicon glyphicon-arrow-down"></i>
+				</button>
+			</div>
+			<div class='clearfix'></div>
+		</li>
+	</ul>
+	<div class="btn-group epl-image-order-btn {{vm.scrollValue>170?'epl-fixed':''}}" 
+		role="group" aria-label="..."
+		eplweb-scroll-position value="vm.scrollValue">
+		<button class="btn btn-danger btn-sm" ng-click="vm.resetOrder()">
+			<span class="glyphicon glyphicon-refresh"></span>
+			Reset Order
+		</button>
+		<button class="btn btn-primary btn-sm" ng-click="vm.saveOrder()">
+			<span class="glyphicon glyphicon-save"></span>
+			Save Order
+		</button>
+	</div>
+
+	<div class='clearfix'></div>
+
+	<div ng-show="vm.imagesTeam == null" >
+		Empty images.
+	</div>
+</div>
+
+<div class='clearfix'></div>
+
+<script type="text/ng-template" id="delImageModal.html">
+	<div class="modal-header">
+		<h3 class="modal-title">Delete Confirmation</h3>
+	</div>
+	<div class="modal-body">
+		Are you sure want to remove this image ?
+		<br/>
+		<img ng-src="{{vm.selectedImage}}" class="epl-modal epl-sample-image"/>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="vm.dismisModal()">
+			<span class="glyphicon glyphicon-ban-circle"></span>
+			Cancel
+		</button>
+		<button class="btn btn-danger" ng-click="vm.doDelete()">
+			<span class="glyphicon glyphicon-remove-circle"></span>
+			Delete
+		</button>
+	</div>
+</script>

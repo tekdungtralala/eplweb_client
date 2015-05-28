@@ -1,0 +1,14 @@
+<span class="alert alert-info alert-dismissable epl-rating-info"
+	ng-show="vm.rating.isInfoVisible()">
+	<i class="icon fa fa-info"></i> Your vote already saved, Thanks.
+</span>
+<span data-ng-repeat='(i,v) in vm.rating.getRatings()' class="epl-ratings">
+	<div>
+		<button class="btn btn-block btn-default btn-xs epl-rating-btn"
+			ng-mouseover="vm.rating.mouseOverRating(i)"
+			ng-click="vm.submitRating(i+1)">
+			<i class="glyphicon glyphicon-star{{v.isEmpty?'-empty':''}}">
+			</i>
+		</button>
+	</div>
+</span>

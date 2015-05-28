@@ -1,0 +1,24 @@
+<div class='epl-squads'>
+<h3 class='epl-left epl-title-page'>
+	<a href="" class='epl-href'>
+		Teams
+	</a>
+</h3>
+
+<div class='epl-all-team'>
+	<span class='epl-center epl-logo' data-ng-repeat='t in vm.teams'
+		data-toggle='tooltip' data-placement='bottom' title='{{t.name}}'>
+		<a href="" ng-click="vm.gotoShowTeam(t.id)">
+			<img class='image epl-mini-team-logo' alt='' 
+				ng-src='eplweb_components/image/logo/150x150/{{t.id}}.png' >
+		</a>
+	</span>
+</div>
+
+<button type="submit" class="btn btn-primary" ng-click="vm.gotoCreatePage()"
+	ng-show="vm.newBtn">
+	<span class="glyphicon glyphicon-plus-sign"></span>
+	Create New Player
+</button>
+
+<div ui-view /></div>

@@ -1,0 +1,725 @@
+/* x < 480 < x < 960 < x  */
+/*  
+.epl-season-label{ 960 < x
+	font-size: 90px;
+}
+@media (max-width: 960px) { 480 < x < 960
+	.epl-season-label{
+	font-size: 60px;
+	}  
+}
+@media (max-width: 480px) { x < 480
+	.epl-season-label{
+	font-size: 30px;
+	}  
+}
+*/
+.angular-google-map-container { height: 400px; }
+/* Remove animation on admin menu*/
+.content-wrapper,
+.right-side,
+.main-footer {
+	transition: none;
+}
+.main-sidebar,
+.left-side {
+	transition: none;
+}
+/*Arrangement box padding*/
+.content, .box {
+	padding: 0px;
+}
+.box-body {
+	padding-top: 10px;
+	padding-left: 10px;
+}
+.navbar-custom-menu > .navbar-nav > li > .dropdown-menu {
+	right: 0px;
+}
+
+@media (max-width: 767px) {
+	.fixed .content-wrapper.epl-isAdmin {
+		padding-top: 50px;
+	}
+}
+
+#epl-eof {
+	margin-bottom: 150px;
+}
+
+/* Spiner loading*/
+.cg-busy {
+	z-index: 1031;
+}
+.cg-busy-default-sign {
+	top: 200px;
+}
+
+/* User cant selected*/
+body{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Change color of header menu for non-admin*/
+.navbar-inverse .navbar-toggle:hover {
+	background-color: #555299;
+}
+.navbar-inverse .navbar-toggle:focus {
+	background-color: #555299;
+}
+
+/* Header section, user-icon and nav button*/
+.skin-purple .main-header .navbar .navbar-custom-menu > .nav {
+	margin-right: 0px;
+}
+.epl-user-logged-btn {
+	padding: 0px;
+	margin-right: 0px;
+}
+.navbar-collapse.collapsing ul li.epl-user-logged-btn,
+.navbar-collapse.collapse.in ul li.epl-user-logged-btn {
+	display: none;
+}
+.fixed .content-wrapper,
+.fixed .right-side {
+	padding-top: 50px;
+}
+.navbar-toggle.epl-toggle-menu {
+	float: left;
+}
+.skin-purple .main-header .navbar .navbar-custom-menu > .nav {
+	 margin-right: 0px; 
+}
+.main-header .navbar-custom-menu,
+.main-header .navbar-right {
+	margin-right: 0px;
+}
+@media (min-width: 768px) {
+	.navbar-toggle.epl-toggle-menu {
+		display: block;
+	}
+}
+
+.epl-signin-button {
+	padding-top: 8px;
+}
+.epl-signin-button ul li {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.epl-signin-button ul li a {
+	padding-bottom: 8px;
+}
+.main-header .navbar-custom-menu a.btn-google-plus,
+.main-header .navbar-right a.btn-google-plus {
+	color: #ffffff;
+	background-color: #dd4b39;
+}
+.main-header .navbar-custom-menu a.btn-facebook,
+.main-header .navbar-right a.btn-facebook {
+	color: #ffffff;
+	background-color: #3b5998;
+}
+.epl-signin-divider {
+	margin: 5px;
+}
+@media (max-width: 768px) {
+	.epl-signin-button {
+		display: none;
+	}
+	.nav li.epl-signin-onlist a {
+		padding-bottom: 7px;
+		padding-top: 6px;
+		margin-left: 6px;
+		margin-right: -33px;
+		width: 100%;
+	}
+}
+@media (min-width: 768px) {
+	.nav li.epl-signin-onlist {
+		display:none;
+	}
+}
+
+/* User Profile */
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header.epl-admin {
+	height: 58px;
+}
+
+/*Centering menu and content*/
+#epl-main-container {
+	max-width: 740px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+#epl-social-btn {
+	padding-left: 10px;
+	padding-top: 5px;
+	float: left;
+}
+
+#epl-eof {
+	margin-bottom: 150px;
+}
+@media (min-width: 992px) {
+	.container {
+	width: 740px;
+	}
+}
+
+.teamofweek{font-size:11px;}
+.teamofweek .team-wrapper{background:url("../image/teamofweek.png") no-repeat;position:relative;height:413px;width:710px;}
+.teamofweek .team-wrapper img{max-width:50px;}
+.teamofweek .team-wrapper p{background-color:#19803F;color:#fff;font-size:11px;font-weight:bold;line-height:12px;padding:0 2px;text-align:center;}
+.teamofweek .rows_1,.teamofweek .rows_2,.teamofweek .rows_3,.teamofweek .rows_4,.teamofweek .rows_5{display:block;clear:both;position:relative;overflow:visible;height:105px;}
+.teamofweek .rows_5 div{margin-left:49px;top:-15px;width:80px;display:inline-block;position:relative;text-align:center;vertical-align:top;}
+.teamofweek .rows_4 div{margin-left:93px;top:-15px;width:80px;display:inline-block;position:relative;text-align:center;vertical-align:top; left:-40px;}
+.teamofweek .rows_3 div{margin-left:115px;top:-15px;width:80px;display:inline-block;position:relative;text-align:center;vertical-align:top;}
+.teamofweek .rows_2 div{margin-left:185px;top:-15px;width:80px;display:inline-block;position:relative;text-align:center;vertical-align:top;}
+.teamofweek .rows_1 div{margin-left:315px;top:-15px;width:80px;display:inline-block;position:relative;text-align:center;vertical-align:top;}
+
+.epl-title-page {
+	margin-top: 0px;
+}
+.epl-displayblock {
+	display: block;
+}
+.epl-displaynone {
+	display: none;
+}
+.epl-mini-team-logo {
+	max-width: 20px;
+	max-height: 20px;
+}
+.epl-center {
+	text-align: center;
+}
+.epl-left {
+	text-align: left;
+}
+.epl-right {
+	text-align: right;
+}
+.epl-hide {
+	display: none;
+}
+.epl-input-text.ng-invalid:focus,
+.epl-input-text.ng-invalid {
+	border-color: red;
+}
+/* Phase navigation*/
+.epl-phase-nav {
+	width: 100%;
+	margin-bottom: 5px;
+}
+.epl-phase-nav .epl-slider {
+	margin: 10px;
+}
+.epl-phase-nav .epl-season-label,
+.epl-phase-nav .epl-week-label {
+	width: 80px;
+	text-align: right;
+}
+.epl-phase-nav .epl-season {
+	width: 190px;
+}
+.epl-phase-nav .epl-season-input {
+	width: 100px;
+	text-align: center;
+}
+.epl-phase-nav .epl-week-input {
+	width: 150px;
+	text-align: center;
+}
+.epl-phase-nav .epl-season {
+	margin-right: 10px; 
+}
+.epl-phase-nav .epl-week {
+	width: 370px;
+}
+.epl-phase-nav .epl-week-label {
+	background-color: inherit;
+}
+.epl-phase-nav .input-group {
+	float: left;
+}
+.epl-phase-nav .epl-cursor-pointer {
+	cursor: pointer;
+}
+@media (max-width: 600px) {
+	.epl-phase-nav .epl-season-label {
+		width: 90px;
+	}
+	.epl-phase-nav .input-group {
+	float: none;
+	}
+	.epl-phase-nav .epl-season {
+	margin-bottom: 5px;
+	}
+}
+#epl-slider label {
+	position: absolute;
+	width: 20px;
+	margin-left: -10px;
+	text-align: center;
+	margin-top: 20px;
+	font-size:8px;
+}
+#epl-slider {
+	width: 95%;
+	margin-bottom: 30px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+table.epl-table > tbody > tr > td {
+	vertical-align: middle;
+}
+.epl-table > thead > tr {
+	background-color: #AEC0D5;
+}
+.epl-table > thead > tr.even,
+.epl-table > tbody > tr.even {
+	background-color: #E1EAF5;
+}
+.epl-table > thead > tr.odd,
+.epl-table > tbody > tr.odd {
+	background-color: #C7D9F0;
+}
+.epl-table.borderless tbody tr td, 
+.epl-table.borderless tbody tr th, 
+.epl-table.borderless thead tr th,
+.epl-table.borderless thead tr td {
+		border: none;
+}
+
+/*Dashboard page*/
+.epl-db .epl-teamoftheweek
+{
+	margin-top:20px;
+}
+
+@media (max-width: 600px) {
+	.epl-db .epl-phase-nav .epl-week-label button{
+		width: 91px;
+		text-align: right;
+	}
+}
+
+/* Totw page*/
+.epl-totw .epl-phase-nav {
+	margin-bottom: 25px
+}
+
+/*PAGE /team/{teamid}/{teamname}*/
+#epl-slideshow {
+	width: 80%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.epl-marker-newlocation {
+	color: green;
+	position: relative;
+	right: 10px;
+}
+.epl-marker-labels {
+	color: red;
+	position: relative;
+	right: 10px;
+}
+.epl-team .epl-team-menu button {
+	margin-right: 10px;
+}
+.epl-team .epl-image-order-btn button {
+	margin-right: 10px;
+}
+.epl-team .epl-image-order-btn.epl-fixed {
+	position: fixed;
+	top: 57px;
+}
+.epl-team .epl-select-file-btn {
+		position: relative;
+		overflow: hidden;
+}
+.epl-team .epl-select-file-btn input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	outline: none;
+	background: white;
+	cursor: inherit;
+	display: block;
+}
+.epl-team .epl-upload-image-button div {
+	float: left;
+	margin-right: 10px;
+}
+.epl-team .epl-progress {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.epl-modal.epl-sample-image {
+	max-width: 125px;
+	max-height: 125px;
+}
+.epl-team .epl-sample-image {
+	max-width: 125px;
+	max-height: 125px;
+	margin-top: 10px;
+}
+.epl-team .epl-list-image {
+	margin-top: 10px;
+}
+.epl-team .epl-thumbnail {
+	position: relative;
+	max-width: 150px;
+	max-height: 150px;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.epl-team .epl-image-sorting ul {
+	width: 181px;
+	float: left;
+	margin-right: 20px;
+}
+.epl-team .epl-image-sorting ul div {
+	position: relative;
+	top: 4px;
+}
+.epl-team .epl-image-sorting .epl-item {
+	max-width: 100px;
+	max-height: 100px;
+	float:left;
+	margin-right: 10px;
+}
+.epl-team .epl-item-image {
+	width:100%;
+	height:100%;
+}
+.epl-team .epl-item-del-btn {
+	display: block;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+.epl-team .epl-image-sorting {
+	margin-top: 10px;
+}
+.epl-team .epl-upload-button {
+	width: 200px;
+}
+.epl-team .epl-upload-button button {
+	margin-left: 10px;
+}
+.epl-team .epl-all-team {
+	margin-bottom: 20px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+}
+.epl-team .epl-backToView-button {
+	width: 80px;
+}
+.epl-team .epl-edit-team.has-error input {
+	border-color: red;
+}
+.epl-team .epl-edit-team {
+	margin-top: 5px;
+	width: 100%;
+}
+.epl-team .epl-edit-team span {
+	width: 150px;
+	text-align: right;
+}
+.epl-team .epl-logo {
+	padding-right: 3px;
+	padding-left: 3px;
+}
+.epl-squads .epl-logo:hover img,
+.epl-team .epl-logo:hover img {
+	-webkit-transform:scale(1.80); /* Safari and Chrome */
+	-moz-transform:scale(1.80); /* Firefox */
+	-ms-transform:scale(1.80); /* IE 9 */
+	-o-transform:scale(1.80); /* Opera */
+	 transform:scale(1.80);
+	image-rendering: -moz-crisp-edges;     /* Firefox */
+	image-rendering:   -o-crisp-edges;     /* Opera */
+	image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+	image-rendering: crisp-edges;
+	-ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+}
+.epl-team .epl-info {
+	margin-bottom: 0px;
+}
+.epl-team .epl-main-logo {
+	width: 50px;
+}
+.epl-team .epl-edit-team-button {
+	width: 50px;
+	margin: auto;
+	margin-top: 10px;
+}
+.epl-team .epl-team-name {
+	font-size: 15px;
+	font-weight: bold;
+}
+.epl-team .epl-div-tab {
+	margin-top: 10px;
+	width: 510px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.epl-team .epl-div-tab div {
+	width: 100px;
+	float: left;
+	padding-left: 5px;
+}
+.epl-team .epl-container-title {
+	text-align: left;
+}
+.epl-team .epl-prevsixresult {
+	width: 55%;
+	float: left;  
+}
+.epl-team .epl-nextsixresult {
+	width: 45%;
+	float: left;
+	padding-left: 10px;
+}
+.epl-team .epl-table.epl-squad {
+	width: 45%;
+	float: left;
+	margin-right: 20px;
+}
+
+/* Page squads*/
+.epl-squads .epl-all-team{
+	margin-bottom: 20px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 520px;
+}
+
+/* Page matchday*/
+.epl-matchday .epl-nav {
+	width: 480px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+.epl-matchday .epl-nav a {
+	width: 115px;
+}
+.epl-matchday .epl-note {
+	font-size: 12px;
+	font-style: italic;
+}
+.epl-matchday .epl-table {
+	margin-bottom: 0px;
+}
+
+.epl-matchday .epl-include-rating {
+	float: right;
+}
+.epl-matchday .epl-rating-info {
+	float: left;
+	padding: 0px 5px 0px 10px;
+	margin-bottom: 0px;
+}
+.epl-matchday .epl-ratings div {
+	float: left;
+	padding-top: 2px;
+}
+.epl-matchday .epl-ratings div button {
+	background-color: inherit;
+	border: none;
+}
+.epl-matchday .epl-voting-result {
+	float: left;
+}
+.epl-matchday .epl-voting-btn {
+	width: 50px;	
+}
+.epl-matchday .epl-comments {
+	text-align: left;
+}
+.epl-matchday .epl-loadmorecmnt-btn {
+	margin-top: 10px;
+}
+.epl-matchday .epl-new-comment-btn {
+	float: left;
+}
+.epl-matchday .epl-new-comment {
+	width: 100%;
+	padding-bottom: 5px;
+}
+.epl-matchday .epl-other-comment .epl-comment-group {
+	width: 100%;
+	padding-top: 10px;
+}
+.epl-matchday .epl-children-comment .epl-comment-group {
+	width: 100%;
+	padding-top: 10px;
+	padding-left: 75px;
+	text-align: left;
+}
+.epl-matchday .epl-image-user {
+	border: none;
+}
+.epl-matchday .epl-children-comment .epl-image-user img {
+	max-width: 35px;
+	max-width: 35px;
+}
+.epl-matchday .epl-mycomment-title {
+	margin-top: 10px;
+	font-weight: bold;
+	position: relative;
+	left: 15px;
+}
+.epl-matchday .epl-comment {
+	padding-left: 12px;
+}
+.epl-matchday .epl-comment .epl-user-name {
+	margin-right: 10px;
+}
+.epl-matchday .epl-comment .epl-user-name{
+	text-align: left;
+}
+.epl-matchday .epl-comment .epl-value {
+	text-align: left;
+}
+.epl-matchday .epl-comment .epl-action {
+	text-align: left;
+	padding-top: 5px;
+}
+.epl-matchday .epl-textarea {
+	min-height: 90px;
+	border: 2px solid rgba(0,0,0,0.1);
+	padding: 8px 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	outline: 0;
+	resize: none;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-left: 10px;
+	width: 100%;
+}
+.epl-remainingchar.has-error {
+	color: red;
+}
+
+.epl-edit-score {
+	width: 35px;
+}
+.epl-matchday .epl-tbl-edit-score {
+	width: 100%;
+}
+table.epl-tbl-edit-score > tbody > tr > td {
+	padding: 0px;
+	padding-right: 3px;
+	padding-left: 3px;
+	vertical-align: middle;
+}
+.epl-score-btn:active {
+	box-shadow: none;
+}
+.epl-modal-header-edit-score {
+	padding-bottom: 0px;
+}
+.epl-matchday .epl-modal-body-edit-score {
+	height: 95px;
+	padding-top: 0px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+}
+.epl-update-rank {
+	padding-left:20px;
+}
+.epl-matchday .epl-update-form {
+	padding-bottom: 10px;
+}
+.epl-matchday .epl-update-form input{
+	width: 50px;
+}
+.epl-matchday .epl-current-week {
+	float: left;
+	width: 240px;
+	margin-right: 10px;
+}
+.epl-matchday .epl-week-number {
+	float: left;
+	width: 255px;
+}
+.epl-matchday .epl-week-number a {
+	float: left;
+}
+.epl-matchday .epl-week-number input {
+	float: left;
+	width: 45px;
+}
+.epl-matchday .epl-saved-models {
+	float: left;
+	width: 100px;
+}
+.epl-matchday .epl-update-matchday-nav {
+	margin-bottom: 10px;  
+}
+.epl-matchday .epl-header-update-matchday {
+	background-color: #AEC0D5;
+}
+.epl-matchday-label {
+	width: 150px;
+	text-align: right;
+	border: none;
+}
+.epl-input-group {
+	margin-bottom: 10px;
+}
+.epl-input-group > .epl-team-logo {
+	width: 50px;
+}
+.epl-update-matchday-form.has-error {
+	border-color: red;
+}
+
+
+/* Page user signin*/
+.epl-user-signin {
+	height: 600px;
+}
+.epl-user-signin .epl-inputform {
+	padding-top:10px;
+	height: 60px;
+}
+.epl-user-signin .epl-inputtext {
+	width: 150px;
+	float: left;
+	margin-right: 15px;
+}
+.epl-user-signin .epl-errormsg {
+	padding-top: 4px;
+}
+.epl-user-signin .epl-errormsg span {
+	color: red;
+}

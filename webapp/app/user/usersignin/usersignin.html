@@ -1,0 +1,46 @@
+<div class="epl-user-signin">
+	<h4>User SignIn</h4>
+	Hai {{vm.userModel.firstName}} {{vm.userModel.lastName}}, welcome into eplweb app.
+	<br/>
+	Need to complete one more step before using this site.
+
+	<div class="form-group epl-inputform">
+		<div><label>Input your username</label></div>
+		<div class="epl-inputtext">
+			<input type="text" class="form-control input-sm " 
+				placeholder="username" 
+				ng-model="vm.username"
+				maxlength="16" />
+		</div>
+		<div class="epl-errormsg">
+			<span ng-show="vm.errorMsg != null">
+				{{vm.errorMsg}}
+			<span>
+		</div>
+	</div>
+	<div class='clearfix'></div>
+	<button class="btn btn-primary" type="button"
+		ng-click="vm.presave()">
+		Save
+	</button>
+<div>
+
+<script type="text/ng-template" id="saveModal.html">
+	<div class="modal-header">
+		<h3 class="modal-title">Saving Confirmation</h3>
+	</div>
+	<div class="modal-body">
+		Username can not be changed.<br/>
+		Are you sure with <b>{{vm.username}}</b> as your username ?
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="vm.dismisModal()">
+			<span class="glyphicon glyphicon-ban-circle"></span>
+			No
+		</button>
+		<button class="btn btn-primary" ng-click="vm.doSave()">
+			<span class="glyphicon glyphicon-floppy-disk"></span>
+			Yes
+		</button>
+	</div>
+</script>

@@ -1,0 +1,23 @@
+<h3 class="box-title">Map Team</h3>
+
+<ui-gmap-google-map 
+		center="vm.map.center" 
+		zoom="vm.map.zoom" 
+		draggable="true" 
+		options="vm.map.options">
+		<ui-gmap-marker 
+			coords="vm.defaultLocation.coords" 
+			options="vm.defaultLocation.options" 
+			idkey="vm.defaultLocation.id">
+		<ui-gmap-marker 
+			coords="vm.marker.coords" 
+			options="vm.marker.options" 
+			idkey="vm.marker.id">
+		</ui-gmap-marker>
+</ui-gmap-google-map>
+<br/>
+<button type="button" ng-click="vm.saveLocation()"
+	class="btn btn-sm btn-primary">
+	<span class="glyphicon glyphicon-floppy-disk"></span>
+	Save New Location
+</button>

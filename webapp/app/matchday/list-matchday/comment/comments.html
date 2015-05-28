@@ -1,0 +1,184 @@
+<script type="text/ng-template" id="newComment.html">
+	<div class="modal-header">
+		<h4 class="modal-title">
+			{{vm.comment.getTitleDialog()}}
+		</h4>
+	</div>
+	<div class="modal-body epl-center epl-matchday">
+
+		<div class="input-group epl-new-comment" 
+			ng-show="vm.comment.getParentComment() != null">
+			<span class="input-group-addon epl-image-user">
+				<img ng-src="{{vm.comment.getParentComment().userImageUrl}}" 
+					class="img-circle"/>
+			</span>
+			<textarea disabled class="form-control epl-textarea epl-left" >{{vm.comment.getParentComment().value}}</textarea>
+		</div>		
+
+		<div class="input-group epl-new-comment">
+			<span class="input-group-addon epl-image-user">
+				<img ng-src="{{loggedUser.imageUrl}}" class="img-circle"/>
+			</span>
+			<textarea class="form-control epl-textarea" 
+				placeholder="{{vm.comment.getPlaceHolder()}}"
+				ng-change="vm.comment.userTypeNewComment()"
+				ng-model="vm.comment.newComment"></textarea>
+		</div>
+
+	</div>
+	<div class="modal-footer">
+		<span 
+			class="epl-remainingchar {{vm.comment.getRemainingChars() < 0 ?'has-error':''}}">
+			{{vm.comment.getRemainingChars()}}
+		</span>
+		<button class="btn btn-default"
+			ng-click="vm.comment.closeCommentDialog()">
+			<span class="glyphicon glyphicon-ban-circle"></span>
+			Cancel
+		</button>
+		<button class="btn btn-primary"
+			ng-click="vm.comment.postNewComment()"
+			ng-disabled="vm.comment.newComment.length === 0">
+			<span class="glyphicon glyphicon-save"></span>
+			{{vm.comment.getPostTextBtn()}}
+		</button>
+	</div>
+</script>
+
+<div class="epl-comments">
+
+	<div class='clearfix'></div>
+	<button type="button" class="btn btn-primary btn-sm epl-new-comment-btn"
+		ng-click="vm.comment.openCommentDialog(null)"
+		ng-show="isUserLogged">
+		Post New Comment
+		<span class="glyphicon glyphicon-plus"/>
+	</button>
+
+	<div class='clearfix'></div>
+	<div ng-if="vm.comment.getMyComments().length > 0">
+		<div class="epl-mycomment-title">My Comments</div>
+		<div>
+			<div data-ng-repeat='c in vm.comment.getMyComments()' 
+				class="epl-other-comment">
+				<div ng-if="!c.hideThis">
+					<span eplweb-comment-section
+						comment="c"
+						actual-id="c.id"
+						is-user-logged="isUserLogged"
+						open-dialog="vm.comment.openCommentDialog(comment, actualId)"
+						update-point="vm.comment.updatePoint(commentId, upOrDown)" >
+					</span>
+					<div class='clearfix'></div>
+
+					<div data-ng-repeat='s in c.subComment' 
+						class="epl-children-comment">
+
+						<span eplweb-comment-section
+							comment="s"
+							actual-id="s.parentId"
+							is-user-logged="isUserLogged"
+							open-dialog="vm.comment.openCommentDialog(comment, actualId)"
+							update-point="vm.comment.updatePoint(commentId, upOrDown)" >
+						</span>
+
+						<div class='clearfix'></div>
+					</div>
+
+					<div class="epl-children-comment" 
+						ng-show="c.subCommentLoaded < c.totalSubComment">
+						<div class="epl-comment-group">
+							<button type="button" 
+								class="btn btn-primary btn-xs"
+								ng-click="vm.comment.loadMoreReplies(c)"
+								ng-disabled="vm.comment.isStillDoAsc()">
+								{{c.textInfoSubCmt}}
+							</button>
+						</div>
+					</div>
+
+					<div data-ng-repeat='s in c.myReplies' 
+						class="epl-children-comment">
+
+						<span eplweb-comment-section
+							comment="s"
+							actual-id="s.parentId"
+							is-user-logged="isUserLogged"
+							open-dialog="vm.comment.openCommentDialog(comment, actualId)"
+							update-point="vm.comment.updatePoint(commentId, upOrDown)" >
+						</span>
+
+						<div class='clearfix'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='clearfix'></div>
+
+	<div data-ng-repeat='c in vm.comment.getAllComments()' 
+		class="epl-other-comment">
+		<div ng-if="!c.hideThis">
+
+			<span eplweb-comment-section
+				comment="c"
+				actual-id="c.id"
+				is-user-logged="isUserLogged"
+				open-dialog="vm.comment.openCommentDialog(comment, actualId)"
+				update-point="vm.comment.updatePoint(commentId, upOrDown)" >
+			</span>
+
+			<div class='clearfix'></div>
+
+			<div data-ng-repeat='s in c.subComment' 
+				class="epl-children-comment">
+
+				<span eplweb-comment-section
+					comment="s"
+					actual-id="s.parentId"
+					is-user-logged="isUserLogged"
+					open-dialog="vm.comment.openCommentDialog(comment, actualId)"
+					update-point="vm.comment.updatePoint(commentId, upOrDown)" >
+				</span>
+
+				<div class='clearfix'></div>
+			</div>
+
+			<div class="epl-children-comment" 
+				ng-show="c.subCommentLoaded < c.totalSubComment">
+				<div class="epl-comment-group">
+					<button type="button" 
+						class="btn btn-primary btn-xs"
+						ng-click="vm.comment.loadMoreReplies(c)"
+						ng-disabled="vm.comment.isStillDoAsc()">
+						{{c.textInfoSubCmt}}
+					</button>
+				</div>
+			</div>
+
+			<div data-ng-repeat='s in c.myReplies' 
+				class="epl-children-comment">
+
+				<span eplweb-comment-section
+					comment="s"
+					actual-id="s.parentId"
+					is-user-logged="isUserLogged"
+					open-dialog="vm.comment.openCommentDialog(comment, actualId)"
+					update-point="vm.comment.updatePoint(commentId, upOrDown)" >
+				</span>
+
+				<div class='clearfix'></div>
+			</div>
+		</div>
+	</div>
+
+	<button type="button" 
+		class="btn btn-primary btn-xs epl-loadmorecmnt-btn"
+		ng-show="vm.comment.getCommentLoaded() < vm.comment.getTotalComment()"
+		ng-click="vm.comment.loadMoreComment()"
+		ng-disabled="vm.comment.isStillDoAsc()">
+		{{vm.comment.getTextInfoComment()}}
+	</button>
+
+<div>

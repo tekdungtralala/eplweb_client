@@ -1,0 +1,25 @@
+<div class="btn-group epl-team-menu" role="group" aria-label="...">
+	<button class="btn btn-sm btn-success epl-backToView-button"
+		ng-click="vm.backToViewTeam()">
+	<span class="glyphicon glyphicon-arrow-left" />
+		Back
+	</button>
+	<button type="button" ng-click="vm.changeState('teaminfo')"
+		class="btn btn-sm btn-{{vm.currentState=='teaminfo'?'primary':'default'}}">
+		Edit Team Info
+	</button>
+	<button type="button" ng-click="vm.changeState('image')"
+		class="btn btn-sm btn-{{vm.currentState=='image'?'primary':'default'}}">
+		Edit Images
+	</button>
+	<button type="button" ng-click="vm.changeState('map')"
+		class="btn btn-sm btn-{{vm.currentState=='map'?'primary':'default'}}">
+		Edit Map
+	</button>
+	<button type="button" ng-click="vm.changeState('video')"
+		class="btn btn-sm btn-{{vm.currentState=='video'?'primary':'default'}}">
+		Edit Video
+	</button>
+</div>
+<br/>
+<span ui-view><span></div>

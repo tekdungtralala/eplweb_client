@@ -1,0 +1,31 @@
+<div class="input-group epl-comment-group">
+	<div class="input-group-addon epl-image-user">
+		<img ng-src="{{comment.userImageUrl}}" class="img-circle"/>
+	</div>
+	<div class="epl-comment">
+		<div class="epl-user-name">
+			<b>{{comment.username}}</b>
+			{{comment.points}} points {{comment.timeDiff}}
+		</div>
+		<div class='clearfix'></div>
+		<div class="epl-value">{{comment.value}}</div>
+		<div class='clearfix'></div>
+		<div class="epl-action" ng-show="isUserLogged">
+			<button type="button" 
+				class="btn btn-default btn-xs"
+				ng-click="openDialog({comment: comment, actualId: actualId})">
+				Reply
+			</button>
+			<button type="button" 
+				class="btn btn-default btn-xs {{comment.isUp != null && comment.isUp ?'btn-primary':''}}"
+				ng-click="updatePoint({commentId: comment.id, upOrDown: true})">
+				<span class="glyphicon glyphicon-arrow-up"></span>
+			</button>
+			<button type="button" 
+				class="btn btn-default btn-xs {{comment.isUp != null && !comment.isUp ?'btn-primary':''}}"
+				ng-click="updatePoint({commentId: comment.id, upOrDown: false})">
+				<span class="glyphicon glyphicon-arrow-down"></span>
+			</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,189 @@
+<div class='epl-db'>
+<h3 class='epl-left epl-title-page'>
+	<a href="#/rank" class='epl-href'>
+		Tables
+	</a>
+	<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#epl-modal-id">
+		<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+	</button>
+</h3>
+
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="epl-modal-id" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" style="width: 800px; margin: 0 auto">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Five Biggest Teams</h4>
+			</div>
+			<div class="modal-body">
+				<div id="epl-chart-container" 
+					style="width: 750px; height: 400px; margin: 0 auto">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<table class="table borderless epl-table">
+	<thead>
+		<tr>
+			<th class='epl-center'>#</th>
+			<th class='epl-left'>Team</th>
+			<th class='epl-center'>GP</th>
+			<th class='epl-center'>W</th>
+			<th class='epl-center'>D</th>
+			<th class='epl-center'>L</th>
+			<th class='epl-center'>GD</th>
+			<th class='epl-center'>PTS</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="{{$odd ? 'odd' : 'even'}} gradeX" data-ng-repeat='r in vm.ranks'>
+			<td class='epl-center'>{{$index + 1}}</td>
+			<td class='epl-left'>
+				<img class='image epl-mini-team-logo' alt='' 
+					ng-src='eplweb_components/image/logo/150x150/{{r.team.id}}.png' >
+				<a ng-href='#/team/{{r.team.id}}/{{r.team.simpleName}}'
+					class='epl-href'>
+					{{r.team.name}}
+				</a>
+			</td>
+			<td class='epl-center'>{{r.gamesWon + r.gamesDrawn + r.gamesLost}}</td>
+			<td class='epl-center'>{{r.gamesWon}}</td>
+			<td class='epl-center'>{{r.gamesDrawn}}</td>
+			<td class='epl-center'>{{r.gamesLost}}</td>
+			<td class='epl-center'>{{r.goalsScored}} - {{r.goalsAgainst}}</td>
+			<td class='epl-center'>{{r.points}}</td>
+		</tr>                
+	</tbody>
+</table>
+
+<h3 class='epl-left'>
+	<a ui-sref="matchday.list-matchday" class='epl-href'>
+		Matchday
+	</a>
+</h3>
+
+<table class="table borderless epl-table" >
+	<thead data-ng-repeat='(key,val) in vm.model'>
+		<tr>
+			<th colspan="6">{{key}}</th>
+		</tr>
+		<tr class="odd gradeX" data-ng-repeat='m in val'>
+			<td class="time">
+				{{m.time}}
+			</td>
+			<td class="epl-right">
+				<a ng-href='#/team/{{m.homeTeam.id}}/{{m.homeTeam.simpleName}}'
+					class='epl-href '>
+					{{m.homeTeam.name}}
+				</a>
+			</td>
+			<td class="rightTeamLogo">
+				<img class="image epl-mini-team-logo" 
+				ng-src="eplweb_components/image/logo/150x150/{{m.homeTeam.id}}.png" alt="">
+			</td>
+			<td class="versus">VS</td>
+			<td class="leftTeamLogo">
+				<img class="image epl-mini-team-logo" 
+				ng-src="eplweb_components/image/logo/150x150/{{m.awayTeam.id}}.png" alt="">
+			</td>
+			<td class="epl-left">
+				<a ng-href='#/team/{{m.awayTeam.id}}/{{m.awayTeam.simpleName}}'
+					class='epl-href'>
+					{{m.awayTeam.name}}
+				</a>
+			</td>
+		</tr>
+	</thead>
+</table>
+
+<h3 class='epl-left'>
+	<a href="#/totw" class='epl-href'>
+		Team of The Week
+	</a>
+</h3>
+
+<div class="teamofweek teamofweek-single">
+
+	<div class='epl-phase-nav'>
+		<div class="input-group epl-season">
+			<div class="input-group-btn ">
+				<div type="button" class="btn btn-default epl-season-label">Season : </div>
+			</div>
+			<input type="text" value="2014-2015" disabled=""
+				class="form-control epl-season-input" >
+		</div>
+
+		<div class="input-group epl-week">
+			<div class="input-group-btn epl-week-label">
+				<button type="button" class="btn btn-default ">Week : </button>
+			</div>
+			<input type="text" class="form-control epl-week-input" disabled=""
+				value='{{vm.currWeek}}'>
+		</div>
+
+		<div class='clearfix'></div>
+	</div>
+
+	<div class='epl-teamoftheweek'>
+		<div class="team-wrapper">
+			<div class="rows_1">
+				<div class="gk">
+					<img src="eplweb_components/image/uniform/mancity-gk.png" alt="">
+					<p>Petr Cech</p>
+				</div>
+			</div>
+			<div class="rows_4">
+				<div class="de1">
+					<img src="eplweb_components/image/uniform/southampton.png" alt="">
+					<p>Mathieu Debuchy</p>
+				</div>
+				<div class="de2">
+					<img src="eplweb_components/image/uniform/hullcity.png" alt="">
+					<p>Kieran Gibbs</p>
+				</div>
+				<div class="de3">
+					<img src="eplweb_components/image/uniform/chelsea.png" alt="">
+					<p>Kolo Touré</p>
+				</div>
+				<div class="de4">
+					<img src="eplweb_components/image/uniform/southampton.png" alt="">
+					<p>Glen Johnson</p>
+				</div>
+			</div>
+			<div class="rows_4">
+				<div class="mf1">
+					<img src="eplweb_components/image/uniform/southampton.png" alt="">
+					<p>David Silva</p>
+				</div>
+				<div class="mf2">
+					<img src="eplweb_components/image/uniform/mancity.png" alt="">
+					<p>Reece Burke</p>
+				</div>
+				<div class="mf3">
+					<img src="eplweb_components/image/uniform/hullcity.png" alt="">
+					<p>Karl Henry</p>
+				</div>
+				<div class="mf4">
+					<img src="eplweb_components/image/uniform/arsenal.png" alt="">
+					<p>Robbie Brady</p>
+				</div>
+			</div>
+			<div class="rows_2">
+				<div class="st1">
+					<img src="eplweb_components/image/uniform/arsenal.png" alt="">
+					<p>Wayne Rooney</p>
+				</div>
+				<div class="st2">
+					<img src="eplweb_components/image/uniform/manutd.png" alt="">
+					<p>Robin van Persie</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

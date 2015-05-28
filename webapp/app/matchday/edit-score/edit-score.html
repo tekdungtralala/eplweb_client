@@ -1,0 +1,122 @@
+<table class="table borderless epl-table">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>ID</td>
+			<td class="epl-right" colspan="2">Home Team</td>
+			<td class="epl-center">VS</td>
+			<td colspan="2">Away Team</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="odd" ng-repeat="(k,v) in vm.datas">
+			<td>{{k+1}}</td>
+			<td>{{v.id}}</td>
+			<td class="epl-right">
+				{{v.homeTeam.name}}
+				<img class="image epl-mini-team-logo" 
+				ng-src="eplweb_components/image/logo/150x150/{{v.homeTeam.id}}.png" alt="">
+			</td>
+			<td> {{v.homeGoal < 0 ? "-" : v.homeGoal}} </td>
+			<td class="epl-center">
+				<button class="btn btn-block btn-primary btn-xs" ng-click="vm.preEditScore(v)">
+					<i class="fa fa-pencil"></i>
+				</button>
+			</td>
+			<td> {{v.awayGoal < 0 ? "-" : v.awayGoal}} </td>
+			<td>
+				<img class="image epl-mini-team-logo" 
+				ng-src="eplweb_components/image/logo/150x150/{{v.awayTeam.id}}.png" alt="">
+				{{v.awayTeam.name}}
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<span class="epl-note">
+	* After finished update score some matchday, don't forget to update rank table through menu "Update Rank" above
+</span>
+
+<script type="text/ng-template" id="editScore.html">
+	<div class="modal-header epl-modal-header-edit-score">
+		<h4 class="modal-title">
+			Update Score
+		</h4>
+	</div>
+	<div class="modal-body epl-center epl-modal-body-edit-score">
+		<form name="editScore">
+		<table class="table borderless epl-tbl-edit-score">
+			<tbody>
+				<tr>
+					<td colspan='2'></td>
+					<td>
+						<a href="" class="btn btn-link epl-score-btn"
+							ng-click="vm.score[0] = vm.score[0] + 1">
+							<i class="fa fa-angle-up"></i>
+						</a>
+					</td>
+					<td></td>
+					<td>
+						<a href="" class="btn btn-link epl-score-btn"
+							ng-click="vm.score[1] = vm.score[1] + 1">
+							<i class="fa fa-angle-up"></i>
+						</a>
+					</td>
+					<td colspan='2'></td>
+				</tr>
+				<tr>
+					<td>{{vm.currMatch.homeTeam.simpleName}}</td>
+					<td>
+						<img class="image epl-mini-team-logo" 
+							ng-src="eplweb_components/image/logo/150x150/{{vm.currMatch.homeTeam.id}}.png"/>
+					</td>
+					<td>
+						<input type="number" class="epl-input-text epl-center" autofocus 
+							required="true" name="homeGoal" min="0"
+							ng-model="vm.score[0]"/>
+					</td>
+					<td>VS</td>
+					<td>
+						<input type="number" class="epl-input-text epl-center"
+							required="true" name="awayGoal" min="0"
+							ng-model="vm.score[1]"/>
+					</td>
+					<td>
+						<img class="image epl-mini-team-logo" 
+							ng-src="eplweb_components/image/logo/150x150/{{vm.currMatch.awayTeam.id}}.png"/>
+					</td>
+					<td>{{vm.currMatch.awayTeam.simpleName}}</td>
+				</tr>
+				<tr>
+					<td colspan='2'></td>
+					<td>
+						<a href="" class="btn btn-link epl-score-btn"
+							ng-click="vm.score[0] = (vm.score[0] - 1) < 0 ? 0 : vm.score[0] - 1">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</td>
+					<td></td>
+					<td>
+						<a href="" class="btn btn-link epl-score-btn"
+							ng-click="vm.score[1] = (vm.score[1] - 1) < 0 ? 0 : vm.score[1] - 1">
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</td>
+					<td colspan='2'></td>
+				</tr>
+			</tbody>
+		</table>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="vm.cancelEditScore()">
+			<span class="glyphicon glyphicon-ban-circle"></span>
+			Cancel
+		</button>
+		<button class="btn btn-{{!editScore.$valid ? 'default' : 'primary'}}" 
+			ng-click="vm.doEditScore()" ng-disabled="!editScore.$valid">
+			<span class="glyphicon glyphicon-save"></span>
+			Save
+		</button>
+	</div>
+</script>

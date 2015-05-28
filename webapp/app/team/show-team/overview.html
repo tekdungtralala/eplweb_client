@@ -1,0 +1,164 @@
+<h4 class='epl-container-title'>
+	League Position
+</h4>
+<table class='table table-striped table-bordered epl-table'>
+	<thead>
+		<tr>
+			<th class='epl-center'>
+				<div class='epl-cell'>
+					Position
+				</div>
+			</th>
+			<th class='epl-center'>
+				<div class='epl-cell' data-toggle='tooltip' 
+					data-placement='top' title='Game Played'>
+					GP
+				</div>
+			</th>
+			<th class='epl-center'>
+				<div class='epl-cell' data-toggle='tooltip' 
+					data-placement='top' title='Game Won'>
+					GW
+				</div>
+			</th>
+			<th class='epl-center'>
+				<div class='epl-cell' data-toggle='tooltip' 
+					data-placement='top' title='Game Draw'>
+					GD
+				</div>
+			</th>
+			<th class='epl-center'>
+				<div class='epl-cell' data-toggle='tooltip' 
+					data-placement='top' title='Game Lose'>
+					GL
+				</div>
+			</th>
+			<th class='epl-center'>
+				<div class='epl-cell' data-toggle='tooltip' 
+					data-placement='top' title='Goal Scored'>
+					GS
+				</div>
+			</th>
+			<th class='epl-center'>
+				<div class='epl-cell' data-toggle='tooltip' 
+					data-placement='top' title='Goal Against'>
+					GA
+				</div>
+			</th>
+			<th class='epl-center'>
+				<div class='epl-cell' data-toggle='tooltip' 
+					data-placement='top' title='Points'>
+					PTS
+				</div>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th class='epl-center'>{{vm.position}}</th>
+			<th class='epl-center'>
+				{{vm.rank.gamesWon + vm.rank.gamesDrawn + vm.rank.gamesLost}}
+			</th>
+			<th class='epl-center'>{{vm.rank.gamesWon}}</th>
+			<th class='epl-center'>{{vm.rank.gamesDrawn}}</th>
+			<th class='epl-center'>{{vm.rank.gamesLost}}</th>
+			<th class='epl-center'>{{vm.rank.goalsScored}}</th>
+			<th class='epl-center'>{{vm.rank.goalsAgainst}}</th>
+			<th class='epl-center'>{{vm.rank.points}}</th>
+			
+		</tr>
+	</tbody>
+</table>
+
+<div class='epl-prevsixresult'>
+	<table class="table borderless epl-table">
+		<thead>
+			<tr>
+				<th class='epl-left' colspan='4'>
+						Last Six results
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat='m in vm.prevMatchday'
+				class="{{$odd ? 'odd' : 'even'}} gradeX">
+				<td class='epl-right'>{{m.formatedWeek}}</td>
+				<td class='epl-left'>
+					<img class='epl-mini-team-logo' 
+						ng-src='eplweb_components/image/logo/150x150/{{m.homeTeam.id}}.png' 
+						alt=''>
+					vs 
+					<img class='epl-mini-team-logo' 
+						ng-src='eplweb_components/image/logo/150x150/{{m.awayTeam.id}}.png' 
+						alt=''>
+				</td>
+				<td class='epl-center'>
+					{{m.homeGoal}} - {{m.awayGoal}}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class='epl-nextsixresult'>
+	<table class="table borderless epl-table">
+		<thead>
+			<tr>
+				<th class='epl-left' colspan='3'>
+						Next Six results
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat='m in vm.nextMatchday' 
+				class="{{$odd ? 'odd' : 'even'}} gradeX">
+				<td class='epl-right'>{{m.formatedWeek}}</td>
+				<td class='epl-left'>
+					<img class='epl-mini-team-logo' 
+						ng-src='eplweb_components/image/logo/150x150/{{m.homeTeam.id}}.png' 
+						alt=''>
+					vs
+					<img class='epl-mini-team-logo' 
+						ng-src='eplweb_components/image/logo/150x150/{{m.awayTeam.id}}.png' 
+						alt=''>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class='clearfix'></div>
+
+<h4 class='epl-container-title'>
+	Club kits & sponsors
+</h4>
+
+<table class='table table-striped table-bordered epl-table epl-kitandsponsor'>
+	<tbody>
+		<tr>
+			<th class='epl-left'>Home Kit</th>
+			<th class='epl-left'>Away Kit</th>
+			<th class='epl-left'>Club Sponsor</th>
+		</tr>
+		<tr>
+			<td class='epl-center' rowspan='3'>
+				<img ng-src='eplweb_components/image/uniform/home/{{vm.currTeam.id}}.png'/>
+			</td>
+			<td class='epl-center' rowspan='3'>
+				<img ng-src='eplweb_components/image/uniform/away/{{vm.currTeam.id}}.png'/>
+			</td>
+			<td class='epl-center'>
+				<img ng-src='eplweb_components/image/team/sponsor/{{vm.currTeam.id}}.png'/>
+			</td>
+		</tr>
+		<tr>
+			<th class='epl-left'>Kit Supplier</th>
+		</tr>
+		<tr>
+			<td class='epl-center'>
+				<img 
+					ng-src='eplweb_components/image/team/kitsuplier/{{vm.currTeam.id}}.png'/>
+			</td>
+		</tr>
+	</tbodd>
+</table>

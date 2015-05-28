@@ -1,0 +1,281 @@
+<h4>
+	<b>Process Update Matchday</b>
+</h4>
+<ol>
+	<li>
+		<b>Delete all matchday</b> on selected week, 
+		include the user <b>comments</b>, <b>rating</b> and <b>voting</b>.
+	</li>
+	<li>
+		Create the new matchdays on a week with initial value of 
+		comments, rating and voting.
+	</li>
+</ol>
+<ul>
+	<li>
+		We can only change the matchday of the current week or the week after.
+	</li>
+	<li>
+		Matchdays before current week could not be changed because the schedule already occured and the result already submitted
+	</li>
+	<li>
+		Please make sure the matchdays schedule obtained from official sources, 
+		so we don't need to change any more.
+	</li>
+</ul>
+
+<div class="epl-update-matchday-nav">
+	<div class="input-group epl-current-week">
+		<span class="input-group-addon">
+			Current Week :
+		</span>
+		<input type="text" class="form-control" disabled
+			ng-model="vm.weekStr"/>
+	</div>
+	<div class="input-group epl-week-number">
+		<span class="input-group-addon">
+			Week Number :
+		</span>
+		<input type="text" class="form-control" disabled
+			ng-model="vm.currWeek"/>
+		<a type="button" class="btn btn-default epl-btn-nav" 
+			ng-click="vm.changeMatchdays(-1)">
+			<i class="fa fa-arrow-left"></i>
+		</a>
+		<a type="button" class="btn btn-default epl-btn-nav" 
+			ng-click="vm.changeMatchdays(1)">
+			<i class="fa fa-arrow-right"></i>
+		</a>
+	</div>
+	<div class="input-group input-group">
+
+		<div class="btn-group btn-group" role="group" aria-label="Small button group">
+			<a type="button" ng-click="vm.changeState('saved')"
+				class="btn btn-{{vm.matchdayState === 'saved'?'primary active':'default'}}" >
+				Saved
+			</a>
+			<a type="button" ng-click="vm.changeState('rearrange')"
+				class="btn btn-{{vm.matchdayState === 'rearrange'?'primary active':'default'}}" >
+				Re-Arrange
+			</a>
+		</div>
+	</div>
+	<div class='clearfix'></div>
+</div>
+
+<div class="box-header with-border epl-header-update-matchday">
+	<h3 class="box-title">Table Matchday</h3>
+	<div class="box-tools pull-right" ng-show="vm.hideAction()">
+		<button class="btn btn-primary btn-sm" data-widget="collapse"
+			ng-click="vm.preSave()">
+			<span class="glyphicon glyphicon-floppy-disk"></span>
+			Save
+		</button>
+		<button class="btn btn-success btn-sm" data-widget="collapse"
+			ng-click="vm.preAdd()">
+			<span class="glyphicon glyphicon-plus-sign"></span>
+			Add
+		</button>
+		<button class="btn btn-info btn-sm" data-widget="collapse"
+			ng-click="vm.sortingModels()">
+			<span class="glyphicon glyphicon-sort-by-alphabet"></span>
+			Sorting
+		</button>
+		<button class="btn btn-danger btn-sm" data-widget="collapse"
+			ng-click="vm.preReset()">
+			<span class="glyphicon glyphicon-refresh"></span>
+			Reset
+		</button>
+	</div>
+</div>
+
+<table class="table borderless epl-table ">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td class="epl-center">Date</td>
+			<td class="epl-center">Time</td>
+			<td class="epl-right">Home Team</td>
+			<td class="epl-center"></td>
+			<td>Away Team</td>
+			<td class="epl-center" ng-show="vm.hideAction()">Action</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="odd epl-animate-tr" ng-repeat="(k,v) in vm.models">
+			<td>{{k+1}}</td>
+			<td class="epl-center">{{v.dateStr}}</td>
+			<td class="epl-center">{{v.timeStr}}</td>
+			<td class="epl-right">
+				{{v.homeTeam.name}}
+				<img class="image epl-mini-team-logo" 
+				ng-src="eplweb_components/image/logo/150x150/{{v.homeTeam.id}}.png" alt="">
+			</td>
+			<td class="epl-center">
+				VS
+			</td>
+			<td>
+				<img class="image epl-mini-team-logo" 
+				ng-src="eplweb_components/image/logo/150x150/{{v.awayTeam.id}}.png" alt="">
+				{{v.awayTeam.name}}
+			</td>
+			<td ng-show="vm.hideAction()">
+				<button type="button" class="btn btn-primary btn-xs" 
+					ng-click="vm.preEdit(v)">
+					<span class="glyphicon glyphicon-pencil"></span>
+				</button>
+				<button type="button" class="btn btn-danger btn-xs" 
+					ng-click="vm.removeRow(k)">
+					<span class="glyphicon glyphicon-remove-circle"></span>
+				</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<script type="text/ng-template" id="resetModal.html">
+	<div class="modal-header">
+		<h3 class="modal-title">Reset Confirmation</h3>
+	</div>
+	<div class="modal-body">
+		Are you sure want to reset this arrangement ?
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="vm.dismisModal()">
+			<span class="glyphicon glyphicon-ban-circle"></span>
+			Cancel
+		</button>
+		<button class="btn btn-danger" ng-click="vm.doReset()">
+			<span class="glyphicon glyphicon-refresh"></span>
+			Reset
+		</button>
+	</div>
+</script>
+
+<script type="text/ng-template" id="saveModal.html">
+	<div class="modal-header">
+		<h3 class="modal-title">Saving Confirmation</h3>
+	</div>
+	<div class="modal-body">
+		The old data will be deleted and can't be restored.<br/>
+		Are you sure want to save this arrangement on current week ?
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="vm.dismisModal()">
+			<span class="glyphicon glyphicon-ban-circle"></span>
+			Cancel
+		</button>
+		<button class="btn btn-primary" ng-click="vm.doSave()">
+			<span class="glyphicon glyphicon-floppy-disk"></span>
+			Save
+		</button>
+	</div>
+</script>
+
+<script type="text/ng-template" id="addModal.html">
+	<div class="modal-header" >
+		<h3 class="modal-title">Adding New Match</h3>
+	</div>
+	<div class="modal-body">
+
+	<form id='matchdayForm'>
+		<div class="input-group">
+			<span class="input-group-addon epl-matchday-label">Time : </span>
+			<timepicker 
+				ng-model="vm.matchdayTime" 
+				hour-step="1" 
+				minute-step="15" show-meridian="true">
+			</timepicker>
+		</div>
+
+	 	<div class="input-group input-group-sm epl-input-group">
+			<span class="input-group-addon epl-matchday-label">Date : </span>
+			<span class="input-group-addon epl-left form-control">
+				{{vm.matchdayDate | date:'fullDate' }}
+			</span>
+			<span class="input-group-btn">
+				<button class="btn btn-primary" type="button"
+					ng-click="vm.showDatepicker = !vm.showDatepicker">
+					Toggle datepicker
+				</button>
+			</span>
+		</div>
+
+		<div class="input-group input-group-sm" 
+			ng-show="vm.showDatepicker">
+			<span class="input-group-addon epl-matchday-label"></span>
+			<div style="display:inline-block;">
+				<datepicker ng-model="vm.matchdayDate" 
+					show-weeks="true" class="well well-sm">
+				</datepicker>
+			</div>
+		</div>
+
+		<div class="input-group input-group-sm epl-input-group">
+			<span class="input-group-addon epl-matchday-label">Home Team : </span>
+			<div class="input-group-btn">
+				<button type="button" class="btn btn-default dropdown-toggle" 
+					data-toggle="dropdown" aria-expanded="false">
+					<span class="fa fa-caret-down"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="" ng-repeat="(k , v) in vm.allTeams"
+							ng-click="vm.homeTeam = v">
+							<img class="image epl-mini-team-logo" alt=""
+								ng-src="eplweb_components/image/logo/150x150/{{v.id}}.png"/>
+							&nbsp;
+							{{v.name}}
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="form-control epl-update-matchday-form">
+					<input type="hidden" name="homeTeam" value="{{vm.homeTeam.id}}"/>
+					<img class="image epl-mini-team-logo" alt="" ng-hide="vm.homeTeam === null"
+						ng-src="eplweb_components/image/logo/150x150/{{vm.homeTeam.id}}.png"/>
+					{{vm.homeTeam.name}}
+			</div>
+		</div>
+
+		<div class="input-group input-group-sm epl-input-group">
+			<span class="input-group-addon epl-matchday-label">Away Team : </span>
+			<div class="input-group-btn">
+				<button type="button" class="btn btn-default dropdown-toggle" 
+					data-toggle="dropdown" aria-expanded="false">
+					<span class="fa fa-caret-down"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="" ng-repeat="(k , v) in vm.allTeams"
+							ng-click="vm.awayTeam = v">
+							<img class="image epl-mini-team-logo" alt=""
+								ng-src="eplweb_components/image/logo/150x150/{{v.id}}.png"/>
+							&nbsp;
+							{{v.name}}
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="form-control epl-update-matchday-form">
+					<input type="hidden" name="awayTeam" value="{{vm.awayTeam.id}}"/>
+					<img class="image epl-mini-team-logo" alt="" ng-hide="vm.awayTeam === null"
+						ng-src="eplweb_components/image/logo/150x150/{{vm.awayTeam.id}}.png"/>
+					{{vm.awayTeam.name}}
+			</div>
+		</div>
+	</form>
+
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="vm.dismisModal()">
+			<span class="glyphicon glyphicon-ban-circle"></span>
+			Cancel
+		</button>
+		<button class="btn btn-{{vm.isNewData ? 'success' : 'primary'}}" 
+			ng-click="vm.doUpdate()">
+			<span 
+				class="glyphicon glyphicon-{{vm.isNewData ? 'plus-sign' : 'floppy-disk'}}"/>
+			{{vm.isNewData ? 'Add' : 'Update'}}
+		</button>
+	</div>
+</script>

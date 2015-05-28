@@ -1,0 +1,61 @@
+<!-- 
+	This button is not the important thing, but dont remove it
+	When we has google grant access and need to get user profile attribute,
+-->
+<span id="googleButton"/>
+
+<!-- User profile button -->
+<div class="navbar-custom-menu">
+	<ul class="nav navbar-nav">
+		<!-- User Account: style can be found in dropdown.less -->
+		<li class="dropdown user user-menu">
+			<a href="" class="dropdown-toggle" data-toggle="dropdown">
+				<span class="glyphicon glyphicon-user" />
+				<b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+				<!-- User image -->
+				<li 
+					class="user-header {{loggedUser.userRole == 1 ? 'epl-admin':''}}">
+					<img ng-src="{{loggedUser.imageUrl}}" 
+						ng-show="loggedUser.userRole == 2"
+						class="img-circle" alt="User Image">
+					<p>
+						<span ng-show="loggedUser.userRole == 2">
+							{{loggedUser.username}}<br/>
+						</span>
+						{{loggedUser.firstName}} {{loggedUser.lastName}}
+					</p>
+				</li>
+				<!-- Menu Footer-->
+				<li class="user-footer">
+					<div class="pull-left">
+						<a class="btn btn-social-icon btn-google-plus"
+							ng-show="loggedUser.type == 'GOOGLE'">
+							<i class="fa fa-google-plus"></i>
+						</a>
+						<a class="btn btn-social-icon btn-facebook"
+							ng-show="loggedUser.type == 'FACEBOOK'">
+							<i class="fa fa-facebook"></i>
+						</a>
+						<a href="#" class="btn btn-default btn-flat">
+							Profile 
+						</a>
+					</div>
+					<div class="pull-right">
+						<a class="btn btn-default btn-flat"
+							ng-show="loggedUser.userRole == 1"
+							ui-sref="admin.logout">
+							Sign out
+						</a>
+						<a class="btn btn-default btn-flat"
+							ng-show="loggedUser.userRole == 2"
+							ui-sref="user.logout">
+							Sign out
+						</a>
+					</div>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>

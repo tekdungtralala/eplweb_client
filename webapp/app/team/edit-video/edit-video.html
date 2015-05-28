@@ -1,0 +1,89 @@
+<h3 class="box-title">Video Team</h3>
+
+<div>
+	<iframe ng-src="{{vm.videoUrl}}" 
+		frameborder="0" allowfullscreen>
+	</iframe>
+</div>
+
+<table>
+	<tr>
+		<td colspan="2" >
+			<h4 class="box-title">Upload New Video</h4>
+		</td>
+		<td colspan="2" >
+			<h4 class="box-title">Change Thumbnail</h4>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<span class="btn btn-success epl-select-file-btn">
+				<i class="glyphicon glyphicon-plus"></i>
+				<span>Select New Videos</span>	
+				<input type="file" ng-file-select name="fileName" 
+					ng-model="vm.videoFile" ng-file-change="vm.verifyVideo()"/>
+			</span>
+		</td>
+		<td class="epl-upload-button">
+			<button type="submit" 
+				class="btn btn-primary {{!vm.uploadVideoBtn?'disabled':''}}" 
+				ng-click="vm.uploadVideo()" >
+				<i class="glyphicon glyphicon-upload"></i>
+				<span>Upload</span>
+			</button>
+		</td>
+		<td>
+			<span class="btn btn-success epl-select-file-btn">
+				<i class="glyphicon glyphicon-plus"></i>
+				<span>Select New Thumbnail</span>	
+				<input type="file" ng-file-select name="fileName" 
+					ng-model="vm.imageFile" ng-file-change="vm.generateThumb()"/>
+			</span>
+		</td>
+		<td class="epl-upload-button">
+			<button type="submit" 
+				class="btn btn-primary {{vm.imageData==null?'disabled':''}}"
+				ng-click="vm.changeThumbnail()" >
+				<i class="glyphicon glyphicon-upload"></i>
+				<span>Upload</span>
+			</button>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<br/>
+			<div ng-show="vm.uploadVideoBtn">
+				File Name : {{vm.videoFile[0].name}}<br/>
+				File Type : {{vm.videoFile[0].type}}<br/>
+				File Size : {{vm.bytesToSize(vm.videoFile[0].size)}}<br/>
+			</div>
+		</td>
+		<td/>
+		<td>
+			<img ng-show="vm.imageData != null" class="epl-sample-image" 
+				ng-src="{{vm.imageData}}"/>
+		</td>
+	</tr>
+</table>
+
+<br/>
+<ul>
+	<li>
+		Video or thumbnail will be upload to our server, then from our server will 
+		be forwarded to youtube server.
+	</li>
+	<li>
+		Maybe upload a new video or change thumbnail image will be finished 
+		in less than 5 minute with normal connection. Please be patient.
+	</li>
+	<li>
+		After finished upload a new video to youtube, youtube server will 
+		process the video file to make sure the video file is a valid.
+		<br/>
+		Please wait more longer to make sure  the video can be fully appear 
+		on the web.
+		<br/>
+		If the video is not appear on web or video is failure you can upload the
+		new one or contact administrator for the future information.
+	</li>
+</ul>

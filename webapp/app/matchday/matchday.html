@@ -1,0 +1,77 @@
+<div class='epl-matchday'>
+
+<h3 class='epl-left epl-title-page'>
+	<a class='epl-href' ui-sref="matchday.list-matchday" ui-sref-opts="{reload: true}">
+		Matchday {{vm.abc}}
+	</a>
+</h3>
+<div class="epl-nav" ng-show="vm.isLoggedAdmin">
+	<a class="btn btn-sm btn-{{vm.activeState === 'list-matchday' ? 'primary active' : 'default'}}"
+		ng-click="vm.changeState('list-matchday')">
+		View
+	</a>
+	<a class="btn btn-sm btn-{{vm.activeState === 'edit-matchday' ? 'primary active' : 'default'}}"
+		ng-click="vm.changeState('edit-matchday')">
+		Update Matchday
+	</a>
+	<a class="btn btn-sm btn-{{vm.activeState === 'edit-score' ? 'primary active' : 'default'}}"
+		ng-click="vm.changeState('edit-score')">
+		Update Score
+	</a>
+	<a class="btn btn-sm btn-{{vm.activeState === 'edit-rank' ? 'primary active' : 'default'}}"
+		ng-click="vm.changeState('edit-rank')"
+		>
+		Update Rank
+	</a>
+</div>
+
+<div class='epl-phase-nav epl-matchdays-phase-nav' ng-show="vm.showPhaseNav">
+	<div class="input-group epl-season">
+		<div class="input-group-btn ">
+			<div type="button" class="btn btn-default epl-season-label">Season : </div>
+		</div>
+		<input type="text" value="2014-2015" disabled="" 
+			class="form-control epl-season-input" >
+	</div>
+
+	<div class="input-group epl-week">
+		<div class="input-group-btn epl-week-label">
+			<button type="button" class="btn btn-default ">Week</button>
+			<button type="button" class="btn btn-default dropdown-toggle" 
+				data-toggle="dropdown" aria-expanded="false">
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li data-ng-repeat='w in vm.weeks'>
+					<a ng-click='vm.changeWeek(w.weekNumber)' class='epl-cursor-pointer'>
+						{{w.dateView}}
+					</a>
+				</li>
+			</ul>
+		</div>
+		<input type="text" class="form-control epl-week-input" disabled=""
+			value='{{vm.selectedWeek}}'>
+
+		<div type='button' class='btn btn-default epl-btn-nav'
+			ng-disabled='vm.prevRankDisable' ng-click='vm.changeWeek(vm.currWeek - 1)'>
+			<i class="fa fa-arrow-left"></i>
+		</div>
+
+		<div type='button' class='btn btn-default epl-btn-nav'
+			ng-click='vm.changeWeek(vm.defaultWeek)'>
+			<i class="fa fa-cog"></i>
+		</div>
+
+		<div type='button' class='btn btn-default epl-btn-nav'
+			ng-disabled='vm.nextRankDisable' ng-click='vm.changeWeek(vm.currWeek + 1)'>
+			<i class="fa fa-arrow-right"></i>
+		</div>
+	</div>
+
+	<div class='clearfix'></div>
+
+	<div id="epl-slider"></div>
+</div>
+
+
+<div ui-view /></div>

@@ -1,0 +1,16 @@
+<div class='epl-team'>
+<div class='epl-all-team'>
+	<span class='epl-center epl-logo' data-ng-repeat='t in vm.teams'
+		data-toggle='tooltip' data-placement='bottom' title='{{t.name}}'>
+		<a ui-sref="team.show-team({id: t.id, simpleName: t.simpleName})">
+			<img class='image epl-mini-team-logo' alt='' 
+				ng-src='eplweb_components/image/logo/150x150/{{t.id}}.png' >
+		</a>
+	</span>
+</div>
+
+<div class='clearfix'></div>
+
+<span ui-view><span></div>
+
+</div>

@@ -1,0 +1,285 @@
+
+
+
+
+
+#epl-main-container
+{
+    max-width: 740px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#epl-eof
+{
+    margin-bottom: 150px;
+}
+/* Override other css */
+
+/*Bootstrap*/
+@media (min-width: 992px) {
+  .container 
+  {
+    width: 750px;
+  }
+}
+
+.right.carousel-control,
+.left.carousel-control
+{
+    cursor: pointer;
+}
+
+/*CgBusy*/
+.cg-busy-backdrop
+{
+    min-height: 2000px;
+}
+
+.cg-busy-default-sign
+{
+    top: 200px;
+}
+
+/* css class can be used on another page*/
+.epl-cell
+{
+    height: 100%; 
+    width: 100%; 
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.epl-mini-team-logo,
+.epl-table .rightTeamLogo img,
+.epl-table .leftTeamLogo img
+{
+    width: 20px;
+}
+
+.epl-center
+{
+    text-align: center;
+}
+
+.epl-left
+{
+    text-align: left;
+}
+
+.epl-right
+{
+    text-align: right;
+}
+
+.epl-href:hover
+{
+    text-decoration: none;
+}
+
+.epl-hide
+{
+    display: none;
+}
+
+table.epl-table > tbody > tr > td
+{
+    vertical-align: middle;
+}
+
+/* season and week navigation */
+.epl-phase-nav .epl-input
+{
+    width: 100px;
+}
+
+.epl-phase-nav .epl-week .epl-input
+{
+    width: 150px;
+}
+
+.epl-phase-nav .epl-season
+{
+    float: left;
+    width: 200px;
+}
+.epl-phase-nav .epl-week
+{
+    float: left;
+    width: 350px;
+}
+
+.epl-phase-nav .epl-btn-nav
+{
+    float: left;
+}
+
+.epl-phase-nav .epl-cursor-pointer
+{
+    cursor: pointer;
+}
+
+
+/* Dashboard page*/
+.epl-db .epl-teamoftheweek
+{
+    margin-top:20px;
+}
+
+.epl-db .epl-dash-phaseNav .epl-input,
+.epl-db .epl-dash-phaseNav .epl-label
+{
+    width: 100px;
+}
+
+.epl-db .epl-dash-phaseNav .epl-week .epl-input
+{
+    width: 150px;
+}
+
+.epl-db .epl-dash-phaseNav .epl-season,
+.epl-db .epl-dash-phaseNav .epl-week
+{
+    padding-left: 10px;
+    float: left;
+    width: 100px;
+}
+
+/* Rank page*/
+.epl-rank .epl-phase-nav
+{
+    padding-bottom: 20px;
+}
+
+/* Matchday page*/
+.epl-matchday .epl-phase-nav
+{
+    padding-bottom: 20px;
+}
+
+/* Totw page*/
+.epl-totw .epl-teamoftheweek
+{
+    margin-top:20px;
+}
+
+
+/*PAGE /team/{teamid}/{teamname}*/
+#epl-slideshow
+{
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.epl-team .epl-all-team
+{
+    margin-bottom: 20px;
+}
+
+.epl-team .epl-logo
+{
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+.epl-team .epl-logo:hover img {
+    -webkit-transform:scale(1.80); /* Safari and Chrome */
+    -moz-transform:scale(1.80); /* Firefox */
+    -ms-transform:scale(1.80); /* IE 9 */
+    -o-transform:scale(1.80); /* Opera */
+     transform:scale(1.80);
+    image-rendering: -moz-crisp-edges;         /* Firefox */
+    image-rendering:   -o-crisp-edges;         /* Opera */
+    image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+}
+
+.epl-team .epl-info
+{
+    margin-bottom: 0px;
+}
+
+.epl-team .epl-main-logo
+{
+    width: 50px;
+}
+
+.epl-team .epl-team-name
+{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.epl-team .epl-div-tab
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 460px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.epl-team .epl-div-tab > .epl-tab > li
+{
+    width: 90px;
+}
+.epl-team .epl-tab > li.active > a
+{
+    background-color: #337ab7;
+}
+
+.epl-team .epl-tab > li > a
+{
+    background-color: #ddd;
+}
+
+.epl-team .epl-tab > li > a:hover
+{
+    background-color: #fff;
+}
+
+.epl-team .epl-tab > li.active > a:hover
+{
+    background-color: #337ab7;
+}
+
+.epl-team .epl-container-title
+{
+    text-align: left;
+}
+
+.epl-team .epl-prevsixresult
+{
+    width: 55%;
+    float: left;    
+}
+
+.epl-team .epl-nextsixresult
+{
+    width: 45%;
+    float: left;
+    padding-left: 10px;
+}
+
+.epl-team .epl-table.epl-squad
+{
+    width: 45%;
+    float: left;
+    margin-right: 20px;
+}
+
+.teamofweek{font-size:11px;}
+.teamofweek .team-wrapper{background:url("../image/teamofweek.png") no-repeat;position:relative;height:413px;width:710px;}
+.teamofweek .team-wrapper img{max-width:50px;}
+.teamofweek .team-wrapper p{background-color:#19803F;color:#fff;font-size:11px;font-weight:bold;line-height:12px;padding:0 2px;text-align:center;}
+.teamofweek .rows_1,.teamofweek .rows_2,.teamofweek .rows_3,.teamofweek .rows_4,.teamofweek .rows_5{display:block;clear:both;position:relative;overflow:visible;height:105px;}
+.teamofweek .rows_5 div{margin-left:49px;top:-15px;width:80px;display:inline-block;position:relative;text-align:center;vertical-align:top;}
+.teamofweek .rows_4 div{margin-left:77px;top:-15px;width:80px;display:inline-block;position:relative;text-align:center;vertical-align:top; left:-40px;}
+.teamofweek .rows_3 div{margin-left:115px;top:-15px;width:80px;display:inline-block;position:relative;text-align:center;vertical-align:top;}
+.teamofweek .rows_2 div{margin-left:0px;top:-15px;width:80px;display:inline-block;position:relative;text-align:center;vertical-align:top;}
+.teamofweek .rows_1 div{margin-left:0px;top:-15px;width:80px;display:inline-block;position:relative;text-align:center;vertical-align:top;}

@@ -1,0 +1,71 @@
+<ul>
+	<li>
+		Table rank in menu #/rank is not changed automatically for the faster response purpose.
+	</li>
+	<li>
+		Calculation of a rank in a week depending on the results from the previous week.
+	</li>
+	<li>
+		Let's assume we will calculate ranking in week <b>17</b>.
+	</li>
+	<li>
+		Then from week <b>1-17</b> will be count the number of win, lose, draw and a goal difference of each team.
+	</li>
+	<li>
+		And the final result is week <b>1 - 17</b> will have a new ranking position.
+	</li>
+</ul>
+
+<div class="epl-update-rank">
+		<div class="callout callout-info" ng-show="vm.showInfo">
+			<p>Rank table within week 1 - {{vm.currWeek}} already udated.</p>
+			<p>Go to menu "view" to see the changes.</p>
+		</div>
+	<div class="input-group epl-update-form">
+		<span class="input-group-addon">Update Rank from week 1 to </span>
+		<form name="updateWeek">
+			<input type="number" class="form-control epl-center epl-input-text" autofocus
+				required="true" disabled
+				min="0" max="{{vm.maxWeek}}"
+				data-ng-model="vm.currWeek"
+				/>
+		</form>
+		<div type="button" class="btn btn-default" 
+			ng-click="vm.currWeek=(vm.currWeek-1>0?vm.currWeek-1:vm.currWeek);
+			vm.showInfo=false">
+			<i class="fa fa-arrow-left"></i>
+		</div>
+		<div type="button" class="btn btn-default" 
+			ng-click="vm.currWeek=(vm.currWeek+1<=vm.maxWeek?vm.currWeek+1:vm.currWeek);
+			vm.showInfo=false">
+			<i class="fa fa-arrow-right"></i>
+		</div>
+	</div>
+	<button class="btn btn-{{!updateWeek.$valid ? 'default' : 'primary'}}"
+		ng-disabled="!updateWeek.$valid" ng-click="vm.openModal()">
+		<span class="glyphicon glyphicon-floppy-disk"></span>
+		Update Rank
+	</button>
+</div>
+
+<script type="text/ng-template" id="editScore.html">
+	<div class="modal-header epl-modal-header-edit-score">
+		<h4 class="modal-title">
+			Update Rank
+		</h4>
+	</div>
+	<div class="modal-body epl-center epl-modal-body-edit-score">
+		Are you sure want to update rank table ?
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="vm.closeModal()">
+			<span class="glyphicon glyphicon-ban-circle"></span>
+			Cancel
+		</button>
+		<button class="btn btn-primary" 
+			ng-click="vm.doUpdateRank()">
+			<span class="glyphicon glyphicon-save"></span>
+			Save
+		</button>
+	</div>
+</script>

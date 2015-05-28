@@ -1,0 +1,38 @@
+<h4 class='epl-container-title'>
+	Team Squad
+</h4>
+<div>
+	<table class='table table-striped table-bordered epl-table epl-squad'>
+		<thead>
+			<tr>
+				<th colspan="2">Squad Member</th>
+				<th>Position</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat='m in vm.squads[0]'>
+				<td class='epl-center'>{{m.playerNumber}}</td>
+				<td class='epl-left'>{{m.name}}</td>
+				<td class='epl-left'>{{m.position}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table class='table table-striped table-bordered epl-table epl-squad'>
+		<thead>
+			<tr>
+				<th colspan="2">Squad Member</th>
+				<th>Position</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat='m in vm.squads[1]'>
+				<td class='epl-center'>{{m.playerNumber}}</td>
+				<td class='epl-left'>{{m.name}}</td>
+				<td class='epl-left'>{{m.position}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class='clearfix'></div>

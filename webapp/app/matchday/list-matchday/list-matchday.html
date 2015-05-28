@@ -1,0 +1,95 @@
+<table class="table borderless epl-table"
+		data-ng-repeat='(key,val) in vm.model'>
+	<thead>
+		<tr>
+			<th colspan="10">{{key}}</th>
+		</tr>
+	</thead>
+	<tbody data-ng-repeat='m in val'>
+		<tr class="odd gradeX" >
+			<td class="time">
+				{{m.time}}
+			</td>
+			<td class="epl-right">
+				<a ng-href='#/team/{{m.homeTeam.id}}/{{m.homeTeam.simpleName}}'
+					class='epl-href'>
+					{{m.homeTeam.shortName}}
+				</a>
+			</td>   
+			<td>
+				<img class="image epl-mini-team-logo" 
+				ng-src="eplweb_components/image/logo/150x150/{{m.homeTeam.id}}.png" alt="">
+			</td>
+			<td class="epl-right">
+				<span class="{{m.homeGoal === -1 ? 'epl-hide' : ''}}">
+					{{m.homeGoal}}
+				</span>
+			</td>
+			<td class="epl-center">VS</td>
+			<td class="epl-left">
+				<span class="{{m.awayGoal === -1 ? 'epl-hide' : ''}}">
+					{{m.awayGoal}}
+				</span>
+			</td>
+			<td>
+				<img class="image epl-mini-team-logo"
+				ng-src="eplweb_components/image/logo/150x150/{{m.awayTeam.id}}.png" alt="">
+			</td>
+			<td class="epl-left">
+				<a ng-href='#/team/{{m.awayTeam.id}}/{{m.awayTeam.simpleName}}'
+					class='epl-href'>
+					{{m.awayTeam.shortName}}
+				</a>
+			</td>
+			<td class="epl-center">
+				<button type="button" 
+					class="btn btn-primary btn-xs"
+					ng-click="vm.selectActionDiv(m, 1);">
+					<i class="fa fa-comment"></i>
+				</button>
+				<button type="button" 
+					class="btn btn-success btn-xs epl-voting-btn"
+					ng-click="vm.selectActionDiv(m, 2);">
+					<i class="fa fa-check-square-o"></i>
+					<img class="image epl-mini-team-logo"
+						ng-src="eplweb_components/image/logo/150x150/{{m.homeTeam.id}}.png" 
+						alt="" ng-show="m.vote === 1">
+					<img class="image epl-mini-team-logo"
+						ng-src="eplweb_components/image/logo/150x150/{{m.awayTeam.id}}.png" 
+						alt="" ng-show="m.vote === 2">
+					<span ng-show="m.vote === 3"> Tie</span>
+					<span ng-show="m.vote != 1 && m.vote != 2 && m.vote != 3"> ?</span>
+				</button>
+				<button type="button" 
+					class="btn btn-warning btn-xs "
+					ng-click="vm.selectActionDiv(m, 0);">
+					<i class="fa fa-star">&nbsp;{{m.ratingPoint}}</i>
+				</button>
+			</td>
+		</tr>
+		<tr ng-show="m.showActionDiv">
+			<td colspan="10" class="epl-right">
+				<div ng-show="vm.subaAtionDiv[0]" class="epl-include-rating">
+					<div ng-include src="'app/matchday/list-matchday/rating.html'"
+						ng-show="isUserLogged"/>
+					<div ng-show="!isUserLogged">
+						Please Signin into web to submit the rating.
+					</div>
+				</div>
+				<div class='clearfix'></div>
+				<div ng-include src="'app/matchday/list-matchday/comment/comments.html'"
+					ng-show="vm.subaAtionDiv[1]">
+				</div>
+				<div class='clearfix'></div>
+				<div ng-show="vm.subaAtionDiv[2]">
+					<div ng-include src="'app/matchday/list-matchday/voting.html'"
+						ng-show="isUserLogged"/>
+					<div ng-show="!isUserLogged">
+						Please Signin into web to submit the voting.
+					</div>
+				</div>
+				<div class='clearfix'></div>
+			</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,89 @@
+/* x < 480 < x < 960 < x  */
+/*  
+.epl-season-label{ 960 < x
+  font-size: 90px;
+}
+@media (max-width: 960px) { 480 < x < 960
+  .epl-season-label{
+    font-size: 60px;
+  }  
+}
+@media (max-width: 480px) { x < 480
+  .epl-season-label{
+    font-size: 30px;
+  }  
+}
+*/
+
+/*Profile dropdown menu*/
+.navbar-nav>.user-menu>.dropdown-menu{
+  width: 160px;
+}
+.epl-profile-btn{
+  text-align: left;
+  width: 100%;"
+}
+.navbar-nav>.user-menu>.dropdown-menu>.user-footer{
+  padding-bottom:0px;
+  padding-top:0px;
+}
+.navbar-custom-menu>.navbar-nav>li>.dropdown-menu{
+  padding-bottom:10px;
+  padding-top:10px;
+}
+.content{
+  padding: 5px;
+}
+.box{
+  border-top: none;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+.box-body{
+  padding: 5px;
+}
+.epl-page-header{
+  margin:0px;
+  margin-bottom: 10px;
+}
+
+/* Phase navigation*/
+.epl-phase-nav .epl-season-label,
+.epl-phase-nav .epl-week-label{
+  width: 80px;
+  text-align: right;
+}
+.epl-phase-nav .epl-season-input{
+  width: 100px;
+  text-align: center;
+}
+.epl-phase-nav .epl-week-input{
+  width: 150px;
+  text-align: center;
+}
+.epl-phase-nav .epl-season{
+  margin-right: 10px; 
+}
+.epl-phase-nav .epl-week{
+  width: 350px;
+}
+.epl-phase-nav .epl-week-label{
+  background-color: inherit;
+}
+.epl-phase-nav .input-group{
+  float: left;
+}
+@media (max-width: 480px) {
+  .epl-phase-nav .input-group{
+    float: none;
+  }
+  .epl-phase-nav .epl-season{
+    margin-bottom: 5px;
+  }
+}
+
+/*Page #/matchday */
+.epl-mini-team-logo
+{
+    max-width: 20px;
+}

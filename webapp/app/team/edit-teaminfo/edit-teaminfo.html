@@ -1,0 +1,69 @@
+<h3 class="box-title">Team Info</h3>
+
+<form id="teamInfoForm">
+	<div class="input-group epl-edit-team">
+		<span class="input-group-addon">Team Name :</span>
+		<input type="text" class="form-control" ng-model="vm.currTeam.name"
+			name="name"/>
+	</div>
+
+	<div class="input-group epl-edit-team">
+		<span class="input-group-addon">Simple Name :</span>
+		<input type="text" class="form-control"ng-model="vm.currTeam.simpleName"
+			name="simpleName"/>
+	</div>
+
+	<div class="input-group epl-edit-team">
+		<span class="input-group-addon">Established :</span>
+		<input type="text" class="form-control" ng-model="vm.currTeam.established"
+			name="established"/>
+	</div>
+
+	<div class="input-group epl-edit-team">
+		<span class="input-group-addon">Manager :</span>
+		<input type="text" class="form-control" ng-model="vm.currTeam.manager"
+			name="manager"/>
+	</div>
+
+	<div class="input-group epl-edit-team">
+		<span class="input-group-addon">Nickname :</span>
+		<input type="text" class="form-control" ng-model="vm.currTeam.nickname"
+			name="nickname"/>
+	</div>
+
+	<div class="input-group epl-edit-team">
+		<span class="input-group-addon">Stadium :</span>
+		<input type="text" class="form-control" ng-model="vm.currTeam.stadium"
+			name="stadium"/>
+	</div>
+</form>
+
+<div class="modal-footer ">
+	<button class="btn btn-danger btn-sm" ng-click="vm.resetTeamInfo()">
+		<span class="glyphicon glyphicon-refresh"></span>
+		Reset
+	</button>
+	<button class="btn btn-primary btn-sm" ng-click="vm.preSave()">
+		<span class="glyphicon glyphicon-save"></span>
+		Save
+	</button>
+</div>
+
+<script type="text/ng-template" id="saveModal.html">
+	<div class="modal-header">
+		<h3 class="modal-title">Saving Confirmation</h3>
+	</div>
+	<div class="modal-body">
+		Are you sure want to save this information ?
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" ng-click="vm.dismisModal()">
+			<span class="glyphicon glyphicon-ban-circle"></span>
+			Cancel
+		</button>
+		<button class="btn btn-primary" ng-click="vm.doSave()">
+			<span class="glyphicon glyphicon-floppy-disk"></span>
+			Save
+		</button>
+	</div>
+</script>

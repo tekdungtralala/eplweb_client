@@ -1,0 +1,22 @@
+<h4 class='epl-container-title'>
+	Player Detail
+</h4>
+
+<div class="modal-body">
+	<div>
+		<dl class="dl-horizontal">
+			<dt>ID</dt>
+			<dd>{{vm.curr.id}}</dd>
+
+			<dt>Name</dt>
+			<dd>{{vm.curr.name}}</dd>
+
+			<dt>Position</dt>
+			<dd>{{vm.curr.position}}</dd>
+		</dl>
+	</div>
+	<button type="submit" class="btn btn-primary" ng-click="vm.backToSquads()">
+		<span class="glyphicon glyphicon-arrow-left"></span>
+		Back
+	</button>
+</div>

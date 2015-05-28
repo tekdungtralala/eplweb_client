@@ -1,0 +1,72 @@
+<!-- Info -->
+<table class="table borderless epl-table epl-info" >
+	<tbody>
+		<tr>
+			<td class='epl-center'>
+				<span class='epl-team-name'>{{vm.currTeam.name}}</span>
+				<br/>
+				<img class='epl-main-logo' alt=''
+					ng-src='eplweb_components/image/logo/150x150/{{vm.currTeam.id}}.png' />
+				<br/>
+				<a ng-show="vm.showEditBtn"
+					ng-click="vm.gotoEditTeam()"
+					class="btn btn-block btn-xs btn-primary epl-edit-team-button">
+					<span class="glyphicon glyphicon-pencil"/>
+						Edit
+				</a>
+			</td>
+			<td class='epl-center'>
+				Established<br/>
+				{{vm.currTeam.established}}
+			</td>
+			<td class='epl-center'>
+				Manager<br/>
+				{{vm.currTeam.manager}}
+			</td>
+			<td class='epl-center'>
+				Nickname<br/>
+				{{vm.currTeam.nickname}}
+			</td>
+			<td class='epl-center'>
+				Stadium<br/>
+				{{vm.currTeam.stadium}}
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<!-- carousel -->
+<div id='epl-slideshow' class='carousel slide'>
+	<div class='carousel-inner' role='listbox'>
+		<div ng-repeat='(k,v) in vm.carousel' 
+			class="item {{v.isActive ? 'active' : ''}}">
+			<img ng-src='{{v.src}}'/>
+		</div>
+	</div>
+	<a class='left carousel-control' role='button' href=''
+		ng-click="vm.changeCarousel('prev')">
+		<span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span>
+		<span class='sr-only'>Previous</span>
+	</a>
+	<a class='right carousel-control' role='button' href=''
+		ng-click="vm.changeCarousel('next')">
+		<span class='glyphicon glyphicon-chevron-right' aria-hidden='true'></span>
+		<span class='sr-only'>Next</span>
+	</a>
+</div>
+
+<!-- Tab Menu -->
+<div class='epl-div-tab'>
+	<div ng-repeat='(key,value) in vm.containerLbl' >
+		<button ng-click='vm.selectContainer(key)'
+			class="btn btn-block btn-sm btn-{{vm.container[key] ? 'default' : 'primary'}}">
+			{{value}}
+		</button>
+	</div>
+</div>
+
+<div class='clearfix'></div>
+
+<div ui-view><div>
+</div>
+
