@@ -2,3 +2,4 @@ webapp/eplweb_components/js/vendors.js
 webapp/eplweb_components/js/eplweb.js
 webapp/eplweb_components/css/eplweb.css
 bower_components
+node_modules
