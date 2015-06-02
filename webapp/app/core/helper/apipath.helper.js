@@ -9,7 +9,7 @@
 		// Github repo for java server (100% finished)
 		//  https://github.com/tekdungtralala/eplweb_java_server
 		// var JAVA_SERVER_URL = "http://localhost:8080/eplweb/";
-		var JAVA_SERVER_URL = "http://162.220.10.249:8080/eplweb/";
+		var JAVA_SERVER_URL = "http://weekendmatch.info/";
 
 		// Github repo for php server (not finished yet)
 		//  https://github.com/tekdungtralala/eplweb_php_server
