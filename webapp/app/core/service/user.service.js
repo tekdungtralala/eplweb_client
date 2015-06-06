@@ -69,7 +69,7 @@
 			if (savedSession) {
 				// if session exist then validity that session through our system
 
-				var req = userauth.getConf(null, "GET", aph.generateUrl("api/usernetwork/me"));
+				var req = userauth.getConf(null, "GET", "api/usernetwork/me");
 
 				$rootScope.promise = $http(req)
 					.then(process)
